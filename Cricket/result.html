@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Result</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    th, td, p, input, h3 {
+        font:15px 'Times New Roman';
+        margin:20px;
+    }
+    table, th, td {
+        border: solid 1px rgb(166, 159, 197);
+        border-collapse: collapse;
+        padding: 8px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    th {
+        font-weight:bold;
+    }
+  .button {
+  background-color: #62658d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #a6a8b4;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+  
+        <div class="logo float-left">
+          <h1 class="text-light"><a href="index.html"><span>Cricket Tournament</span></a></h1>
+        </div>
+        <nav class="nav-menu float-left d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Countries</a></li>
+            <li><a href="index.html">Venue</a></li>
+            <li class="drop-down"><a href="">Team</a>
+              <ul>
+                <li><a href="team.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Players</a>
+              <ul>
+                <li><a href="player.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Matches</a>
+              <ul>
+                <li><a href="MatchList.html">List Of Matches</a></li>
+                <li ><a href="MatchSummary.html">Match Summary</a>
+                </li>
+              </ul>
+            </li>
+           
+            <li><a href ="table.html">Tournament Score Table</a></li>
+            <li><a href ="result.html">Results</a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+  
+      </div>
+    </header><!-- End Header -->
+  
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Result</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li>Result</li>
+            </ol>
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs Section -->
+  
+      <section class="inner-page">
+        <div class="container">
+            
+                  <div class="section-title">
+                    <body></br></br>
+                      <marquee behavior="scroll" direction="left">Here are some graphic and Tabular represenations of the results of the matches</marquee></br></br>
+                        <button class="block"  onclick='ResultFromJson()'>View Result</button></br></br>
+                          <p id='showResult'></p>
+                          <p id='msg5'></p>
+                      </body>
+                      <div class="row no-gutters">
+
+                          <div class="col-lg-6 video-box">
+                            <img src="assets/img/result3.jpg" class="img-fluid" alt="">
+                          </div></br></br>
+                          <div class="col-lg-6 video-box">
+                              <img src="assets/img/result2.jpg" class="img-fluid" alt="">
+                            </div>
+                          
+                            <div class="col-lg-6 video-box">
+                              <img src="assets/img/result1.png" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 video-box">
+                                <img src="assets/img/result2.png" class="img-fluid" alt="">
+                              </div>
+                      <script>
+                       function ResultFromJson() {
+                // the json data. (you can change the values for output.)
+                var myResult = [
+                    {
+                      'Match':"Australia vs India",
+                       'No of sixs' :"7",
+                       'No of fours':"9",
+                       'Inning':"6",
+                       'Description':"The result of a match is a win  when one side scores more runs than the opposing side and all the innings of the team that has fewer runs have been completed. ... If the match ends without all the innings being completed, the result may be a draw or no result."
+                    },
+                    {
+                      'Match':"USA vs India",
+                       'No of sixs' :"7",
+                       'No of fours':"9",
+                       'Inning':"6",
+                       'Description':"The result of a match is a win  when one side scores more runs than the opposing side and all the innings of the team that has fewer runs have been completed. ... If the match ends without all the innings being completed, the result may be a draw or no result."
+                    },
+                   
+                    {
+                      'Match':"Australia vs China",
+                       'No of sixs' :"7",
+                       'No of fours':"9",
+                       'Inning':"6",
+                       'Description':"The result of a match is a win  when one side scores more runs than the opposing side and all the innings of the team that has fewer runs have been completed. ... If the match ends without all the innings being completed, the result may be a draw or no result."
+                    },
+                   
+                    {
+                      'Match':"France vs India",
+                       'No of sixs' :"7",
+                       'No of fours':"9",
+                       'Inning':"6",
+                       'Description':"The result of a match is a win  when one side scores more runs than the opposing side and all the innings of the team that has fewer runs have been completed. ... If the match ends without all the innings being completed, the result may be a draw or no result."
+                    },
+                   
+                   
+                   
+                ]
+                // Extract value from table header. 
+                var col = [];
+                for (var i = 0; i < myResult.length; i++) {
+                    for (var key in myResult[i]) {
+                        if (col.indexOf(key) === -1) {
+                            col.push(key);
+                        }
+                    }
+                }
+                // Create a table.
+                var table = document.createElement("table");
+                // Create table header row using the extracted headers above.
+                var tr = table.insertRow(-1);                   // table row.
+                for (var i = 0; i < col.length; i++) {
+                    var th = document.createElement("th");      // table header.
+                    th.innerHTML = col[i];
+                    tr.appendChild(th);
+                }
+                // add json data to the table as rows.
+                for (var i = 0; i < myResult.length; i++) {
+                    tr = table.insertRow(-1);
+                    for (var j = 0; j < col.length; j++) {
+                        var tabCell = tr.insertCell(-1);
+                        tabCell.innerHTML = myResult[i][col[j]];
+                    }
+                }
+                // Now, add the newly created table with json data, to a container.
+                var divShowData = document.getElementById('showResult');
+                divShowData.innerHTML = "";
+                divShowData.appendChild(table);
+                document.getElementById('msg5').innerHTML = '<br />';
+            }
+            </script>
+            </div>
+              </div>
+              </div>
+              </div>
+            </section>
+    </main><!-- End #main -->
+  </body>
+  </html>

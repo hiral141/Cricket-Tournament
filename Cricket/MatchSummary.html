@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Match Summary</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    #abc{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #abc td, #abc th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #abc tr:nth-child(even){background-color: #e7dede;}
+  
+  #abc tr:hover {background-color: rgb(234, 239, 240);}
+  
+  #abc th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #97a9c4;
+    color: white;
+  }
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+  
+        <div class="logo float-left">
+          <h1 class="text-light"><a href="index.html"><span>Cricket Tournament</span></a></h1>
+        </div>
+        <nav class="nav-menu float-left d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Countries</a></li>
+            <li><a href="index.html">Venue</a></li>
+            <li class="drop-down"><a href="">Team</a>
+              <ul>
+                <li><a href="team.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Players</a>
+              <ul>
+                <li><a href="player.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Matches</a>
+              <ul>
+                <li><a href="MatchList.html">List Of Matches</a></li>
+                <li ><a href="MatchSummary.html">Match Summary</a>
+                </li>
+              </ul>
+            </li>
+           
+            <li><a href ="table.html">Tournament Score Table</a></li>
+            <li><a href ="result.html">Results</a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+  
+      </div>
+    </header><!-- End Header -->
+  
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Match Summary</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li> Match Summary</li>
+            </ol>
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs Section -->
+  
+      <section class="inner-page">
+        <div class="container">
+          <body> 
+            <div class="container"> 
+              <marquee behavior="scroll" direction="left">Match Summary : Team , Winner , Losser ,Man of the Match,Bowler of the Match, Best Fielder</marquee>
+              <h1 class="text text-success text-center "> 
+                Match Summary
+              </h1>  
+                <table class="table-striped border-success" id = "abc"> 
+                  <thead> 
+                    <tr> 
+                      <th data-field="team"> 
+                        <span class="text-success"> 
+                         Team
+                        </span> 
+                      </th> 
+                      <th data-field="winner"> 
+                        <span class="text-success"> 
+                          Winner  
+                        </span> 
+                      </th> 
+                      <th data-field="losser"> 
+                        <span class="text-success"> 
+                          Losser
+                        </span> 
+                      </th> 
+                      <th data-field="man"> 
+                        <span class="text-success"> 
+                         Man of the Match
+                        </span> 
+                      </th> 
+                      <th data-field="fielder"> 
+                        <span class="text-success"> 
+                         Best Fielder
+                        </span> 
+                      </th> 
+                      <th data-field="bowler"> 
+                        <span class="text-success"> 
+                         Bowler of the Match
+                        </span> 
+                      </th>
+                    </tr> 
+                  </thead> 
+                </table> 
+            </div> 
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script> 
+  <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">  </script> 
+  <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">  </script> 
+   <script src=  "https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js">  </script> 
+     <script type="text/javascript"> 
+       $(document).ready(function () { 
+     
+         // Use the given data to create  
+         // the table and display it 
+         $('table').bootstrapTable({ 
+           data: mydata 
+         }); 
+       }); 
+     
+       // Specify the JSON data to be displayed 
+       var mydata = 
+         [ 
+           { 
+             "team": "India vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "Ireland vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "India vs Uk", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "India vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "UK vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "France vs China", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "India vs China", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }, 
+           { 
+             "team": "Italy vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"abc"
+           }, 
+           { 
+             "team": "USA vs India", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"Dhoni"
+           }, 
+           { 
+             "team": "china vs Australia", 
+             "winner": "India", 
+             "losser": "Australia" ,
+             "man":"Virat Kholi",
+             "fielder":"Rohit Sharma",
+             "bowler":"sachin"
+           }
+          
+          
+         ];
+     </script> 
+        </div>
+      </section>
+  
+    </main><!-- End #main -->
+  
+   
+  
+  </body>
+  
+  </html>

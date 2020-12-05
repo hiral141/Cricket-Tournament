@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    th, td, p, input, h3 {
+        font:15px 'Times New Roman';   
+         margin:20px;
+    }
+ 
+    table, th, td {
+        border: solid 1px rgb(156, 157, 170);
+        border-collapse: collapse;
+        padding: 8px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+      
+    }
+    th {
+        font-weight:bold;
+    }
+  .button {
+  background-color: #62658d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #a6a8b4;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+  
+        <div class="logo float-left">
+          <h1 class="text-light"><a href="index.html"><span>Cricket Tournament</span></a></h1>
+        </div>
+        <nav class="nav-menu float-left d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Countries</a></li>
+            <li><a href="index.html">Venue</a></li>
+            <li class="drop-down"><a href="">Team</a>
+              <ul>
+                <li><a href="team.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Players</a>
+              <ul>
+                <li><a href="player.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Matches</a>
+              <ul>
+                <li><a href="MatchList.html">List Of Matches</a></li>
+                <li ><a href="MatchSummary.html">Match Summary</a></li>
+                </li>
+              </ul>
+            </li>
+           
+            <li><a href ="table.html">Tournament Score Table</a></li>
+            <li><a href ="result.html">Results</a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+  
+      </div>
+    </header><!-- End Header -->
+  
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Team Profile</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li> Team Profile</li>
+            </ol>
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs Section -->
+  
+      <section class="inner-page">
+        <marquee behavior="scroll" direction="left">To view the team profile click on the desired team </marquee>
+        </br></br></br>
+        <div class="container">
+              <button class="block"  onclick='tableFromJson()'>India</button></br>
+              <p id='showData'>
+              <p id='msg'></p>
+              <script>
+                function tableFromJson() {
+     // the json data. (you can change the values for output.)
+     
+         var myCountry = [
+             {
+             'Team Code':"IND",
+             'Matches Played':"10",
+             'Players':"11",
+             'Couch':"Hardik",
+             'Matches won':"6",
+             'Matches lost':"4",
+             'Captain':"Sachin",
+             'Vice Captain':"Virat",
+             'Wicket Keeper':"rohit",
+             'Umpire':"Dhoni",
+             "Description":"The India men's national cricket team, also known as Team India and Men in Blue, is governed by the Board of Control for Cricket in India (BCCI), and is a Full Member of the International Cricket Council (ICC) with Test, One-Day International (ODI) and Twenty20 International (T20I) status.",
+            
+             }
+         ]
+         // Extract value from table header. 
+         var col = [];
+      
+         for (var i = 0; i < myCountry.length; i++) {
+             for (var key in myCountry[i]) {
+                 if (col.indexOf(key) === -1) {
+                     col.push(key);
+                 }
+             }
+         }
+         // Create a table.
+         var table = document.createElement("table");
+         // Create table header row using the extracted headers above.
+         var tr = table.insertRow(-1);                   // table row.
+         for (var i = 0; i < col.length; i++) {
+             var th = document.createElement("th");      // table header.
+             th.innerHTML = col[i];
+             tr.appendChild(th);
+         }
+         // add json data to the table as rows.
+         for (var i = 0; i < myCountry.length; i++) {
+             tr = table.insertRow(-1);
+             for (var j = 0; j < col.length; j++) {
+                 var tabCell = tr.insertCell(-1);
+                 tabCell.innerHTML = myCountry[i][col[j]];
+             }
+         }
+         // Now, add the newly created table with json data, to a container.
+         var divShowData = document.getElementById('showData');   
+         divShowData.innerHTML = "";
+       
+         divShowData.appendChild(table);
+         document.getElementById('msg').innerHTML = '<br />';
+     }
+               </script> 
+              </div>
+        
+            <div class ="container">
+            <button class="block"  onclick='AustraliaFromJson()'>Australia</button>
+              <p id='showData2'></p>
+              <p id='msg2'></p>
+          
+          <script>
+            function AustraliaFromJson() {
+ // the json data. (you can change the values for output.)
+     var myCountry2 = [
+         {   
+             'Team Code':"Aus",
+             'Matches Played':"12",
+             'Players':"11",
+             'Couch':"David Warner",
+             'Matches won':"8",
+             'Matches lost':"4",
+             'Captain':"Steve Smith",
+             'Vice Captain':"Pat Cummins",
+             'Wicket Keeper':"Glenn Maxwell",
+             'Umpire':"Aaron Finch",
+             "Description":"The Australia men's national cricket team represents Australia in men's international cricket. As the joint oldest team in Test cricket history, playing in the first ever Test match in 1877,[10] the team also plays One-Day International (ODI) and Twenty20 International (T20I) cricket, participating in both the first ODI, against England in the 1970–71 season[11] and the first T20I, against New Zealand in the 2004–05 season,[12] winning both games. The team draws its players from teams playing in the Australian domestic competitions – the Sheffield Shield, the Australian domestic limited-overs cricket tournament and the Big Bash League."
+         }
+         
+     ]
+     // Extract value from table header. 
+     var col = [];
+     for (var i = 0; i < myCountry2.length; i++) {
+         for (var key in myCountry2[i]) {
+             if (col.indexOf(key) === -1) {
+                 col.push(key);
+             }
+         }
+     }
+     // Create a table.
+     var table = document.createElement("table");
+     // Create table header row using the extracted headers above.
+     var tr = table.insertRow(-1);                   // table row.
+     for (var i = 0; i < col.length; i++) {
+         var th = document.createElement("th");      // table header.
+         th.innerHTML = col[i];
+         tr.appendChild(th);
+     }
+     // add json data to the table as rows.
+     for (var i = 0; i < myCountry2.length; i++) {
+         tr = table.insertRow(-1);
+         for (var j = 0; j < col.length; j++) {
+             var tabCell = tr.insertCell(-1);
+             tabCell.innerHTML = myCountry2[i][col[j]];
+         }
+     }
+     // Now, add the newly created table with json data, to a container.
+     var divShowData = document.getElementById('showData2');
+     divShowData.innerHTML = "";
+     divShowData.appendChild(table);
+     document.getElementById('msg2').innerHTML = '<br />';
+ }
+           </script> 
+           </div> </br>
+           <div class="container">
+                <button class="block"  onclick='ItalyFromJson()'>Italy</button>
+                <p id='showData6'></p>
+                <p id='msg6'></p>
+                <script>
+                  function ItalyFromJson() {
+       // the json data. (you can change the values for output.)
+           var myCountry6 = [
+               {
+              'Team Code':"ITL",
+             'Matches Played':"12",
+             'Players':"11",
+             'Couch':"Gayashan",
+             'Matches won':"8",
+             'Matches lost':"4",
+             'Captain':"Joy Perera",
+             'Vice Captain':"Damin Crowly",
+             'Wicket Keeper':"Luis di",
+             'Umpire':"Peter Petricola",
+             'Description':"The Italy national cricket team is the team that represents the country of Italy in international cricket. They have been an associate member of the International Cricket Council (ICC) since 1995, having previously been an affiliate member since 1984."
+              
+               }
+           ]
+           // Extract value from table header. 
+           var col = [];
+           for (var i = 0; i < myCountry6.length; i++) {
+               for (var key in myCountry6[i]) {
+                   if (col.indexOf(key) === -1) {
+                       col.push(key);
+                   }
+               }
+           }
+           // Create a table.
+           var table = document.createElement("table");
+           // Create table header row using the extracted headers above.
+           var tr = table.insertRow(-1);                   // table row.
+           for (var i = 0; i < col.length; i++) {
+               var th = document.createElement("th");      // table header.
+               th.innerHTML = col[i];
+               tr.appendChild(th);
+           }
+           // add json data to the table as rows.
+           for (var i = 0; i < myCountry6.length; i++) {
+               tr = table.insertRow(-1);
+               for (var j = 0; j < col.length; j++) {
+                   var tabCell = tr.insertCell(-1);
+                   tabCell.innerHTML = myCountry6[i][col[j]];
+               }
+           }
+           // Now, add the newly created table with json data, to a container.
+           var divShowData = document.getElementById('showData6');
+           divShowData.innerHTML = "";
+           divShowData.appendChild(table);
+           document.getElementById('msg6').innerHTML = '<br />';
+       }
+                 </script>    
+                </div>
+              </br>
+              <div class ="container">
+              <button class="block"  onclick='USAFromJson()'>United States Of America</button>
+                <p id='showData7'></p>
+                <p id='msg7'></p>
+            
+            <script>
+              function USAFromJson() {
+   // the json data. (you can change the values for output.)
+       var myCountry7 = [
+           {   
+            'Team Code':"USA",
+             'Matches Played':"15",
+             'Players':"11",
+             'Couch':"Saurabh Netravalkar",
+             'Matches won':"8",
+             'Matches lost':"5",
+             'Captain':"Steve Taylor",
+             'Vice Captain':"jasdeep Singh",
+             'Wicket Keeper':"xavier Marshall",
+             'Umpire':"Timil Patel",
+             "Description":"The United States national cricket team is the team that represents the United States in international cricket. The team was formerly organised by the United States of America Cricket Association (USACA), which became an associate member of the International Cricket Council (ICC) in 1965."
+           }
+           
+       ]
+       // Extract value from table header. 
+       var col = [];
+       for (var i = 0; i < myCountry7.length; i++) {
+           for (var key in myCountry7[i]) {
+               if (col.indexOf(key) === -1) {
+                   col.push(key);
+               }
+           }
+       }
+       // Create a table.
+       var table = document.createElement("table");
+       // Create table header row using the extracted headers above.
+       var tr = table.insertRow(-1);                   // table row.
+       for (var i = 0; i < col.length; i++) {
+           var th = document.createElement("th");      // table header.
+           th.innerHTML = col[i];
+           tr.appendChild(th);
+       }
+       // add json data to the table as rows.
+       for (var i = 0; i < myCountry7.length; i++) {
+           tr = table.insertRow(-1);
+           for (var j = 0; j < col.length; j++) {
+               var tabCell = tr.insertCell(-1);
+               tabCell.innerHTML = myCountry7[i][col[j]];
+           }
+       }
+       // Now, add the newly created table with json data, to a container.
+       var divShowData = document.getElementById('showData7');
+       divShowData.innerHTML = "";
+       divShowData.appendChild(table);
+       document.getElementById('msg7').innerHTML = '<br />';
+   }
+             </script> 
+             </div>
+            </br>
+              <div class="container">
+                <button class="block"  onclick='RussiaFromJson()'>Russia</button>
+                <p id='showData8'></p>
+                <p id='msg8'></p>
+                <script>
+                  function RussiaFromJson() {
+       // the json data. (you can change the values for output.)
+           var myCountry8 = [
+               {
+            'Team Code':"ITL",
+             'Matches Played':"12",
+             'Players':"11",
+             'Couch':"Gayashan",
+             'Matches won':"8",
+             'Matches lost':"4",
+             'Captain':"Joy Perera",
+             'Vice Captain':"Damin Crowly",
+             'Wicket Keeper':"Luis di",
+             'Umpire':"Peter Petricola",
+             'Description':"The Italy national cricket team is the team that represents the country of Italy in international cricket. They have been an associate member of the International Cricket Council (ICC) since 1995, having previously been an affiliate member since 1984."
+              
+               }
+           ]
+           // Extract value from table header. 
+           var col = [];
+           for (var i = 0; i < myCountry8.length; i++) {
+               for (var key in myCountry8[i]) {
+                   if (col.indexOf(key) === -1) {
+                       col.push(key);
+                   }
+               }
+           }
+           // Create a table.
+           var table = document.createElement("table");
+           // Create table header row using the extracted headers above.
+           var tr = table.insertRow(-1);                   // table row.
+           for (var i = 0; i < col.length; i++) {
+               var th = document.createElement("th");      // table header.
+               th.innerHTML = col[i];
+               tr.appendChild(th);
+           }
+           // add json data to the table as rows.
+           for (var i = 0; i < myCountry8.length; i++) {
+               tr = table.insertRow(-1);
+               for (var j = 0; j < col.length; j++) {
+                   var tabCell = tr.insertCell(-1);
+                   tabCell.innerHTML = myCountry8[i][col[j]];
+               }
+           }
+           // Now, add the newly created table with json data, to a container.
+           var divShowData = document.getElementById('showData8');
+           divShowData.innerHTML = "";
+           divShowData.appendChild(table);
+           document.getElementById('msg8').innerHTML = '<br />';
+       }
+                 </script>    
+                </div>
+              </br>
+              <div class ="container">
+              <button class="block"  onclick='FranceFromJson()'>France</button>
+                <p id='showData9'></p>
+                <p id='msg9'></p>
+            
+            <script>
+              function FranceFromJson() {
+   // the json data. (you can change the values for output.)
+       var myCountry9 = [
+           {   
+            'Team Code':"USA",
+             'Matches Played':"15",
+             'Players':"11",
+             'Couch':"Saurabh Netravalkar",
+             'Matches won':"8",
+             'Matches lost':"5",
+             'Captain':"Steve Taylor",
+             'Vice Captain':"jasdeep Singh",
+             'Wicket Keeper':"xavier Marshall",
+             'Umpire':"Timil Patel",
+             "Description":"The United States national cricket team is the team that represents the United States in international cricket. The team was formerly organised by the United States of America Cricket Association (USACA), which became an associate member of the International Cricket Council (ICC) in 1965."
+           }
+           
+       ]
+       // Extract value from table header. 
+       var col = [];
+       for (var i = 0; i < myCountry9.length; i++) {
+           for (var key in myCountry9[i]) {
+               if (col.indexOf(key) === -1) {
+                   col.push(key);
+               }
+           }
+       }
+       // Create a table.
+       var table = document.createElement("table");
+       // Create table header row using the extracted headers above.
+       var tr = table.insertRow(-1);                   // table row.
+       for (var i = 0; i < col.length; i++) {
+           var th = document.createElement("th");      // table header.
+           th.innerHTML = col[i];
+           tr.appendChild(th);
+       }
+       // add json data to the table as rows.
+       for (var i = 0; i < myCountry9.length; i++) {
+           tr = table.insertRow(-1);
+           for (var j = 0; j < col.length; j++) {
+               var tabCell = tr.insertCell(-1);
+               tabCell.innerHTML = myCountry9[i][col[j]];
+           }
+       }
+       // Now, add the newly created table with json data, to a container.
+       var divShowData = document.getElementById('showData9');
+       divShowData.innerHTML = "";
+       divShowData.appendChild(table);
+       document.getElementById('msg9').innerHTML = '<br />';
+   }
+             </script> 
+             </div>    
+          </div>   
+        </div>
+        </div>
+      </section>
+  
+    </main><!-- End #main -->
+  </body>
+  </html>

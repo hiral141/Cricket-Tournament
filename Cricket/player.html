@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+th, td, p, input, h3 {
+        font:15px 'Times New Roman';
+        margin:20px;
+    }
+table, th, td {
+        border: solid 1px rgb(166, 159, 197);
+        border-collapse: collapse;
+        padding: 8px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+th {
+        font-weight:bold;
+    }
+.button {
+  background-color: #35375c;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #a6a8b4;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+  
+        <div class="logo float-left">
+          <h1 class="text-light"><a href="index.html"><span>Cricket Tournament</span></a></h1>
+        </div>
+        <nav class="nav-menu float-left d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">About Us</a></li>
+            <li><a href="index.html">Countries</a></li>
+            <li><a href="index.html">Venue</a></li>
+            <li class="drop-down"><a href="">Team</a>
+              <ul>
+                <li><a href="team.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Players</a>
+              <ul>
+                <li><a href="player.html">Profile</a></li>
+              </ul>
+            </li>
+            <li class="drop-down"><a href="">Matches</a>
+              <ul>
+                <li><a href="MatchList.html">List Of Matches</a></li>
+                <li ><a href="MatchSummary.html">Match Summary</a></li>
+                </li>
+              </ul>
+            </li>
+            <li><a href ="table.html">Tournament Score Table</a></li>
+            <li><a href ="result.html">Results</a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
+  
+      </div>
+    </header><!-- End Header -->
+  
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Player Profile</h2>
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li> Player Profile</li>
+            </ol>
+          </div>
+        </div>
+      </section><!-- End Breadcrumbs Section -->
+  
+      <section class="inner-page">
+        <div class="container">
+          <marquee behavior="scroll" direction="left">To view the player's profile click on the desired player </marquee>
+        </br></br></br>
+        <div class="container">
+              <button class="block"  onclick='tableFromJson()'>Virat Kholi</button>
+              <p id='showData'></p>
+              <p id='msg'></p>
+              <script>
+                function tableFromJson() {
+     // the json data. (you can change the values for output.)
+         var myCountry = [
+             {
+             'Team':"India",
+             'Runs':"500",
+             'Nickname':"virat",
+             'No Of Series Played':"50",
+             'Playing Role':"Batsman",
+             'Batting Style':"Right Handed Batsman",
+             'Birth City':"Mumbai",
+             'Description':"Virat Kohli is an Indian cricketer. He was born in Delhi, India on November 5, 1988. Virat is the first player in ICC cricket history to win all 3 ICC awards in a single year- ICC ODI player of the year, ICC Test player of the year and ICC Player of the year award in 2018."
+            
+             }
+         ]
+         // Extract value from table header. 
+         var col = [];
+         for (var i = 0; i < myCountry.length; i++) {
+             for (var key in myCountry[i]) {
+                 if (col.indexOf(key) === -1) {
+                     col.push(key);
+                 }
+             }
+         }
+         // Create a table.
+         var table = document.createElement("table");
+         // Create table header row using the extracted headers above.
+         var tr = table.insertRow(-1);                   // table row.
+         for (var i = 0; i < col.length; i++) {
+             var th = document.createElement("th");      // table header.
+             th.innerHTML = col[i];
+             tr.appendChild(th);
+         }
+         // add json data to the table as rows.
+         for (var i = 0; i < myCountry.length; i++) {
+             tr = table.insertRow(-1);
+             for (var j = 0; j < col.length; j++) {
+                 var tabCell = tr.insertCell(-1);
+                 tabCell.innerHTML = myCountry[i][col[j]];
+             }
+         }
+         // Now, add the newly created table with json data, to a container.
+         var divShowData = document.getElementById('showData');
+         divShowData.innerHTML = "";
+         divShowData.appendChild(table);
+         document.getElementById('msg').innerHTML = '<br />';
+     }
+               </script>    
+              </div>
+            </br>
+            <button class="block"  onclick='AustraliaFromJson()'>David Warnner</button>
+              <p id='showData2'></p>
+              <p id='msg2'></p>
+          
+          <script>
+            function AustraliaFromJson() {
+ // the json data. (you can change the values for output.)
+     var myCountry2 = [
+         {   
+             'Team':"Australia",
+             'Runs':"100",
+             'Nickname':"david",
+             'No Of Series Played':"30",
+             'Playing Role':"Bowler",
+             'Bowling Style':"Right Arm ",
+             'Birth City':"Melbourne",
+             'Description':"David Andrew Warner (born 27 October 1986) is an Australian international cricketer and a former captain of the Australian national team. A left-handed opening batsman, Warner is the first Australian cricketer in 132 years to be selected for a national team in any format without experience in first-class cricket."
+         }
+         
+     ]
+     // Extract value from table header. 
+     var col = [];
+     for (var i = 0; i < myCountry2.length; i++) {
+         for (var key in myCountry2[i]) {
+             if (col.indexOf(key) === -1) {
+                 col.push(key);
+             }
+         }
+     }
+     // Create a table.
+     var table = document.createElement("table");
+     // Create table header row using the extracted headers above.
+     var tr = table.insertRow(-1);                   // table row.
+     for (var i = 0; i < col.length; i++) {
+         var th = document.createElement("th");      // table header.
+         th.innerHTML = col[i];
+         tr.appendChild(th);
+     }
+     // add json data to the table as rows.
+     for (var i = 0; i < myCountry2.length; i++) {
+         tr = table.insertRow(-1);
+         for (var j = 0; j < col.length; j++) {
+             var tabCell = tr.insertCell(-1);
+             tabCell.innerHTML = myCountry2[i][col[j]];
+         }
+     }
+     // Now, add the newly created table with json data, to a container.
+     var divShowData = document.getElementById('showData2');
+     divShowData.innerHTML = "";
+     divShowData.appendChild(table);
+     document.getElementById('msg2').innerHTML = '<br />';
+ }
+           </script>     
+        </div>
+    </br>
+    <div class="container">
+         <button class="block"  onclick='ItalyFromJson()'>Sachin Tendulkar</button>
+         <p id='showData6'></p>
+         <p id='msg6'></p>
+         <script>
+           function ItalyFromJson() {
+// the json data. (you can change the values for output.)
+    var myCountry6 = [
+        {
+             'Team':"India",
+             'Runs':"500",
+             'Nickname':"sachin",
+             'No Of Series Played':"50",
+             'Playing Role':"Batsman",
+             'Batting Style':"Right Handed Batsman",
+             'Birth City':"Mumbai",
+             'Description':"Tendulkar was born at Nirmal Nursing Home in Dadar, Bombay on 24 April 1973 to a Maharashtrian family. His father, Ramesh Tendulkar, was a well-known Marathi novelist & poet and his mother, Rajni, worked in the insurance industry. Ramesh named Tendulkar after his favourite music director, Sachin Dev Burman."
+       
+        }
+    ]
+    // Extract value from table header. 
+    var col = [];
+    for (var i = 0; i < myCountry6.length; i++) {
+        for (var key in myCountry6[i]) {
+            if (col.indexOf(key) === -1) {
+                col.push(key);
+            }
+        }
+    }
+    // Create a table.
+    var table = document.createElement("table");
+    // Create table header row using the extracted headers above.
+    var tr = table.insertRow(-1);                   // table row.
+    for (var i = 0; i < col.length; i++) {
+        var th = document.createElement("th");      // table header.
+        th.innerHTML = col[i];
+        tr.appendChild(th);
+    }
+    // add json data to the table as rows.
+    for (var i = 0; i < myCountry6.length; i++) {
+        tr = table.insertRow(-1);
+        for (var j = 0; j < col.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            tabCell.innerHTML = myCountry6[i][col[j]];
+        }
+    }
+    // Now, add the newly created table with json data, to a container.
+    var divShowData = document.getElementById('showData6');
+    divShowData.innerHTML = "";
+    divShowData.appendChild(table);
+    document.getElementById('msg6').innerHTML = '<br />';
+}
+          </script>    
+         </div>
+       </br>
+       <div class ="container">
+       <button class="block"  onclick='USAFromJson()'>MS Dhoni</button>
+         <p id='showData7'></p>
+         <p id='msg7'></p>
+     
+     <script>
+    
+       function USAFromJson() {
+// the json data. (you can change the values for output.)
+var myCountry7 = [
+    {   
+             'Team':"India",
+             'Runs':"500",
+             'Nickname':"virat",
+             'No Of Series Played':"50",
+             'Playing Role':"Batsman",
+             'Batting Style':"Right Handed Batsman",
+             'Birth City':"Mumbai",
+             'Description':"Mahendra Singh Dhoni (born 7 July 1981), commonly known as M. S. Dhoni and *Mahi*, is a cricket player and was the former captain of the Indian cricket team. Dhoni is a right-handed batsman. He is known as the greatest captain of all time, having achieved more success than any other captain in the history of cricket."
+    }
+    
+]
+// Extract value from table header. 
+var col = [];
+for (var i = 0; i < myCountry7.length; i++) {
+    for (var key in myCountry7[i]) {
+        if (col.indexOf(key) === -1) {
+            col.push(key);
+        }
+    }
+}
+// Create a table.
+var table = document.createElement("table");
+// Create table header row using the extracted headers above.
+var tr = table.insertRow(-1);                   // table row.
+for (var i = 0; i < col.length; i++) {
+    var th = document.createElement("th");      // table header.
+    th.innerHTML = col[i];
+    tr.appendChild(th);
+}
+// add json data to the table as rows.
+for (var i = 0; i < myCountry7.length; i++) {
+    tr = table.insertRow(-1);
+    for (var j = 0; j < col.length; j++) {
+        var tabCell = tr.insertCell(-1);
+        tabCell.innerHTML = myCountry7[i][col[j]];
+    }
+}
+// Now, add the newly created table with json data, to a container.
+var divShowData = document.getElementById('showData7');
+divShowData.innerHTML = "";
+divShowData.appendChild(table);
+document.getElementById('msg7').innerHTML = '<br />';
+}
+      </script>  
+      </div>   
+    </br>
+      <div class="container">
+        <button class="block"  onclick='RaviFromJson()'>Ravinder Jadeja</button>
+        <p id='showData8'></p>
+        <p id='msg8'></p>
+        <script>
+          function RaviFromJson() {
+// the json data. (you can change the values for output.)
+   var myCountry8 = [
+       {
+            'Team':"India",
+            'Runs':"500",
+            'Nickname':"sachin",
+            'No Of Series Played':"50",
+            'Playing Role':"Batsman",
+            'Batting Style':"Right Handed Batsman",
+            'Birth City':"Mumbai",
+            'Description':"Tendulkar was born at Nirmal Nursing Home in Dadar, Bombay on 24 April 1973 to a Maharashtrian family. His father, Ramesh Tendulkar, was a well-known Marathi novelist & poet and his mother, Rajni, worked in the insurance industry. Ramesh named Tendulkar after his favourite music director, Sachin Dev Burman."
+      
+       }
+   ]
+   // Extract value from table header. 
+   var col = [];
+   for (var i = 0; i < myCountry8.length; i++) {
+       for (var key in myCountry8[i]) {
+           if (col.indexOf(key) === -1) {
+               col.push(key);
+           }
+       }
+   }
+   // Create a table.
+   var table = document.createElement("table");
+   // Create table header row using the extracted headers above.
+   var tr = table.insertRow(-1);                   // table row.
+   for (var i = 0; i < col.length; i++) {
+       var th = document.createElement("th");      // table header.
+       th.innerHTML = col[i];
+       tr.appendChild(th);
+   }
+   // add json data to the table as rows.
+   for (var i = 0; i < myCountry8.length; i++) {
+       tr = table.insertRow(-1);
+       for (var j = 0; j < col.length; j++) {
+           var tabCell = tr.insertCell(-1);
+           tabCell.innerHTML = myCountry8[i][col[j]];
+       }
+   }
+   // Now, add the newly created table with json data, to a container.
+   var divShowData = document.getElementById('showData8');
+   divShowData.innerHTML = "";
+   divShowData.appendChild(table);
+   document.getElementById('msg8').innerHTML = '<br />';
+}
+         </script>    
+        </div>
+      </br>
+      <div class ="container">
+      <button class="block"  onclick='KLFromJson()'>Kl Rahul</button>
+        <p id='showData9'></p>
+        <p id='msg9'></p>
+    
+    <script>
+      function KLFromJson() {
+// the json data. (you can change the values for output.)
+var myCountry9 = [
+   {   
+            'Team':"India",
+            'Runs':"500",
+            'Nickname':"virat",
+            'No Of Series Played':"50",
+            'Playing Role':"Batsman",
+            'Batting Style':"Right Handed Batsman",
+            'Birth City':"Mumbai",
+            'Description':"Mahendra Singh Dhoni (born 7 July 1981), commonly known as M. S. Dhoni and *Mahi*, is a cricket player and was the former captain of the Indian cricket team. Dhoni is a right-handed batsman. He is known as the greatest captain of all time, having achieved more success than any other captain in the history of cricket."
+   }
+   
+]
+// Extract value from table header. 
+var col = [];
+for (var i = 0; i < myCountry9.length; i++) {
+   for (var key in myCountry9[i]) {
+       if (col.indexOf(key) === -1) {
+           col.push(key);
+       }
+   }
+}
+// Create a table.
+var table = document.createElement("table");
+// Create table header row using the extracted headers above.
+var tr = table.insertRow(-1);                   // table row.
+for (var i = 0; i < col.length; i++) {
+   var th = document.createElement("th");      // table header.
+   th.innerHTML = col[i];
+   tr.appendChild(th);
+}
+// add json data to the table as rows.
+for (var i = 0; i < myCountry9.length; i++) {
+   tr = table.insertRow(-1);
+   for (var j = 0; j < col.length; j++) {
+       var tabCell = tr.insertCell(-1);
+       tabCell.innerHTML = myCountry9[i][col[j]];
+   }
+}
+// Now, add the newly created table with json data, to a container.
+var divShowData = document.getElementById('showData9');
+divShowData.innerHTML = "";
+divShowData.appendChild(table);
+document.getElementById('msg9').innerHTML = '<br />';
+}
+     </script>  
+        </div>
+      </section>
+    </main><!-- End #main -->
+  </body>
+  </html>

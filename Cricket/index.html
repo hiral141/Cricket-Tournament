@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cricket Tournament</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!--  CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    th, td, p, input, h3 {
+        font:15px 'Segoe UI';
+        margin:20px;
+    }
+    table, th, td {
+        border: solid 1px #ddd;
+        border-collapse: collapse;
+        padding: 2px 3px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+      
+    }
+    th {
+        font-weight:bold;
+    }
+    .button {
+  background-color: #62658d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="index.html"><span>Cricket League Tournament</span></a></h1>
+      </div>
+        <nav class="nav-menu float-left d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href ="#countries">Countries</a></li>
+          <li><a href ="#venue">Venue</a></li>
+          <li class="drop-down"><a href="">Team</a>
+            <ul>
+              <li><a href="team.html">Profile</a></li>
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">Players</a>
+            <ul>
+              <li><a href="player.html">Profile</a></li>
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">Matches</a>
+            <ul>
+              <li><a href="MatchList.html">List Of Matches</a></li>
+              <li><a href="MatchSummary.html">Match Summary</a>
+              </li>
+            </ul>
+          </li>
+         
+          <li><a href ="table.html">Tournament Score Table</a></li>
+          <li><a href ="result.html">Results</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url('assets/img/slide/slide2.jpg');">
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url('assets/img/slide/slide3.jpg');">
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url('assets/img/slide/slide.jpg');">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=zvPINj-Wjnk" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+            <div class="section-title">
+              <h2>About Us</h2>
+              <p>The tournament comprises four stages, the Super 8, 6, as well as semi-finals and finals. Teams from around the world put out their strongest players in an effort to win to the competition. This is a cup that all players want to win, and all fans want their country to win Promoted by the ICC, T20 first arrived in 2007 in India. Since then it has exploded in popularity across all cricketing nations. It energy and excitement are unmatched in the game. In this tournament, technique and defence are superseded by shot selection and power, making it one of the most popular events in the cricket calendar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!--========= Countries Sections=======-->
+    <section id = "countries" class = "about">
+      <div class = "container">
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="assets/img/country.jpg" class="img-fluid" alt="">
+            </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-center countries-content">
+            <div class="section-title">
+              <h2>Countries</h2>
+              <body>
+                <button class="button"  onclick='tableFromJson()'>View Countries</button>
+                  <p id='showData'></p>
+                  <p id='msg'></p>
+              </body>
+              <script>
+               function tableFromJson() {
+		// the json data. (you can change the values for output.)
+        var myCountry = [
+            {'Serial No': '1', 'Name': 'USA' 
+            },
+            {'Serial No': '2', 'Name': 'London' 
+            },
+            {'Serial No': '3', 'Name': 'Italy' 
+            },
+            {'Serial No': '4', 'Name': 'Mexico' 
+            },
+            {'Serial No': '5', 'Name': 'Paris' 
+            },
+            {'Serial No': '6', 'Name': 'Rusia' 
+            },
+            {'Serial No': '7', 'Name': 'China' 
+            },
+            {'Serial No': '8', 'Name': 'India' 
+            },
+            {'Serial No': '9', 'Name': 'Japan' 
+            },
+            {'Serial No': '10', 'Name': 'Egypt' 
+            },
+            {'Serial No': '11', 'Name': 'UK' 
+            },
+            {'Serial No': '12', 'Name': 'France' 
+            },
+            {'Serial No': '13', 'Name': 'Germany' 
+            },
+            {'Serial No': '14', 'Name': 'Thailand' 
+            },
+            {'Serial No': '15', 'Name': 'St.Peterberg' 
+            }      
+        ]
+        // Extract value from table header. 
+        var col = [];
+        for (var i = 0; i < myCountry.length; i++) {
+            for (var key in myCountry[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+        // Create a table.
+        var table = document.createElement("table");
+        // Create table header row using the extracted headers above.
+        var tr = table.insertRow(-1);                   // table row.
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+        // add json data to the table as rows.
+        for (var i = 0; i < myCountry.length; i++) {
+            tr = table.insertRow(-1);
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myCountry[i][col[j]];
+            }
+        }
+        // Now, add the newly created table with json data, to a container.
+        var divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+        document.getElementById('msg').innerHTML = '<br />';
+    }
+              </script>
+          </div>
+      </div>
+      </div>
+      </div>
+    </section>
+    
+     <!--========= Venue Sections=======-->
+     <section id = "venue" class = "venue">
+       <div class = "container">
+        <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="assets/img/venue.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 d-flex flex-column justify-content-center venue-content">
+              <div class="section-title">
+                <h2>Venue of the Matches</h2>
+            <body>
+              <button class="button"  onclick='VenueFromJson()'>View Venue</button>
+                <p id='showData1'></p>
+                <p id='msg1'></p>
+            </body>
+            <script>
+            function VenueFromJson() {
+  // the json data. (you can change the values for output.)
+      var myVenue = [
+          {
+            'Match':"India vs Australia",
+            'Venue':"Melbourne Stadium",
+            'Country':"Australia"
+          },
+          {
+            'Match':"France vs USA",
+            'Venue':"Lord's",
+            'Country':"London"
+          },
+          {
+            'Match':"China vs France",
+            'Venue':"Melbourne Stadium",
+            'Country':"Australia"
+          },
+          {
+            'Match':"Ttaly vs Russia",
+            'Venue':"Lord's",
+            'Country':"London"
+          },
+          {
+            'Match':"Ireland vs India",
+            'Venue':"Melbourne Stadium",
+            'Country':"Australia"
+          },
+          {
+            'Match':"India vs Australia",
+            'Venue':"Melbourne Stadium",
+            'Country':"Australia"
+          },
+         
+      ]
+      // Extract value from table header. 
+      var col = [];
+      for (var i = 0; i < myVenue.length; i++) {
+          for (var key in myVenue[i]) {
+              if (col.indexOf(key) === -1) {
+                  col.push(key);
+              }
+          }
+      }
+      // Create a table.
+      var table = document.createElement("table");
+      // Create table header row using the extracted headers above.
+      var tr = table.insertRow(-1);                   // table row.
+      for (var i = 0; i < col.length; i++) {
+          var th = document.createElement("th");      // table header.
+          th.innerHTML = col[i];
+          tr.appendChild(th);
+      }
+      // add json data to the table as rows.
+      for (var i = 0; i < myVenue.length; i++) {
+          tr = table.insertRow(-1);
+          for (var j = 0; j < col.length; j++) {
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = myVenue[i][col[j]];
+          }
+      }
+      // Now, add the newly created table with json data, to a container.
+      var divShowData = document.getElementById('showData1');
+      divShowData.innerHTML = "";
+      divShowData.appendChild(table);
+      document.getElementById('msg1').innerHTML = '<br />';
+  }
+      </script>
+      
+          </div>
+          </div>
+          </div>
+          </div>
+     </section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Cricket Tournament</h3>
+            <p>
+              A108 Adam Street <br>
+              NY 535022, USA<br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  <!-- JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!--  JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
